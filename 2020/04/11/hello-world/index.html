@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>搭建个人blog，step by step，hexo + githubPage =&gt; hello world ! | flaskback712's blog</title><meta name="author" content="flashback712"><meta name="copyright" content="flashback712"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、概述 Hexo: 一个基于Node.js的静态博客框架，使用Markdown等标记语言来撰写文章，可以生成静态的HTML网页文件。Hexo支持多种主题和插件，具有快速、简单、易于使用等特点，是一个非常受欢迎的静态博客框架。 GitHub Pages: 是GitHub提供的一项服务，它允许用户创建和托管静态网站，而无需自己搭建服务器或购买域名等。用户可以将自己的静态网页文件（如HTML、CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建个人blog，step by step，hexo + githubPage &#x3D;&gt; hello world !">
+<meta property="og:url" content="http://example.com/2020/04/11/hello-world/index.html">
+<meta property="og:site_name" content="flaskback712&#39;s blog">
+<meta property="og:description" content="一、概述 Hexo: 一个基于Node.js的静态博客框架，使用Markdown等标记语言来撰写文章，可以生成静态的HTML网页文件。Hexo支持多种主题和插件，具有快速、简单、易于使用等特点，是一个非常受欢迎的静态博客框架。 GitHub Pages: 是GitHub提供的一项服务，它允许用户创建和托管静态网站，而无需自己搭建服务器或购买域名等。用户可以将自己的静态网页文件（如HTML、CSS">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png">
+<meta property="article:published_time" content="2020-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-20T13:32:20.100Z">
+<meta property="article:author" content="flashback712">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png"><link rel="shortcut icon" href="https://s2.loli.net/2023/09/09/CvNOiQ7YAPfcZqj.png"><link rel="canonical" href="http://example.com/2020/04/11/hello-world/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '搭建个人blog，step by step，hexo + githubPage => hello world !',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-20 21:32:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png')"><nav id="nav"><span id="blog-info"><a href="/" title="flaskback712's blog"><span class="site-name">flaskback712's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">搭建个人blog，step by step，hexo + githubPage =&gt; hello world !</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-04-10T16:00:00.000Z" title="Created 2020-04-11 00:00:00">2020-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-20T13:32:20.100Z" title="Updated 2023-11-20 21:32:20">2023-11-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/tecStudy/">tecStudy</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2020/04/11/hello-world/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png" alt="show hexo"></p>
+<h4 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h4><ul>
+<li>Hexo: 一个基于Node.js的静态博客框架，使用Markdown等标记语言来撰写文章，可以生成静态的HTML网页文件。Hexo支持多种主题和插件，具有快速、简单、易于使用等特点，是一个非常受欢迎的静态博客框架。</li>
+<li>GitHub Pages: 是GitHub提供的一项服务，它允许用户创建和托管静态网站，而无需自己搭建服务器或购买域名等。用户可以将自己的静态网页文件（如HTML、CSS、JavaScript等）存储在GitHub仓库中，然后通过GitHub Pages服务将这些文件托管在互联网上，从而实现了建立个人博客、展示作品集等目的。</li>
+<li>hexo + githubPage的组合即是利用Hexo框架来撰写文章生成需要的静态文件，将这些文件交由githubPage管理，使他们能够供互联网上的其他人访问来实现个人博客。</li>
+</ul>
+<h4 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h4><ul>
+<li>安装node.js,概述已经说过Hexo是基于NodeJS编写的，所以需要安装NodeJS和npm工具来作为Hexo的环境<br>这个环境想必大家都有，如果没有的话可以参考<a target="_blank" rel="noopener" href="https://nodejs.cn/npm/getting-started/configuring-your-local-environment/downloading-and-installing-node-js-and-npm/">这里</a>安装node.js。</li>
+<li>2、需要有一个GitHub账号，没有的话到<a href="github,com">官网</a>申请一个，不多赘述。</li>
+</ul>
+<h4 id="三、开始配置"><a href="#三、开始配置" class="headerlink" title="三、开始配置"></a>三、开始配置</h4><h5 id="1、添加npm"><a href="#1、添加npm" class="headerlink" title="1、添加npm"></a>1、添加npm</h5><ul>
+<li>新建一个文件夹，作为博客存放在本地的根目录（后续称这个文件夹的路径为$）</li>
+<li>为博客文件夹添加包管理工具，在博客的根目录打开bash，输入以下命令，安装npm</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/09/03/k1S7xjBFiKnL5bO.png" alt="install npm"></p>
+<ul>
+<li>查看npm版本检验安装是否成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm -v</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2023/09/03/PR47Dj3CWOdsIzN.png" alt="check npn version"></p>
+<h5 id="2、安装hexo"><a href="#2、安装hexo" class="headerlink" title="2、安装hexo"></a>2、安装hexo</h5><ul>
+<li>依旧是博客根目录，使用npm命令安装hexo框架至博客的根目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/09/03/aRF5n7EkA16ygOL.png" alt="hexo_install"><br><img src="https://s2.loli.net/2023/09/03/IPrULjxAbCSHwB7.png" alt="hexo install"></p>
+<ul>
+<li>按照惯例查看版本检查一下Hexo是否安装成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo -v</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/09/03/ubqtp2GWFj8fYNT.png" alt="check hexo version"></p>
+<ul>
+<li>安装完hexo后运行hexo初始化生成hexo的框架</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo init</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2023/09/03/lUpz1uGqTXt9ogY.png" alt="hexo init"></p>
+<ul>
+<li>完成这一步后可以看到你的博客根目录为</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── _config.yml <span class="comment"># 网站的配置信息，您可以在此配置大部分的参数。 </span></span><br><span class="line">├── package.json</span><br><span class="line">├── node_modules <span class="comment">#npm管理的包</span></span><br><span class="line">├── scaffolds <span class="comment"># 模版文件夹</span></span><br><span class="line">├── <span class="built_in">source</span>  <span class="comment"># 资源文件夹，除 _posts 文件，其他以下划线_开头的文件或者文件   夹不会被编译打包到public文件夹</span></span><br><span class="line">|   ├── _drafts <span class="comment"># 草稿文件</span></span><br><span class="line">|   └── _posts <span class="comment"># 文章Markdowm文件 </span></span><br><span class="line">└── themes  <span class="comment"># 主题文件夹</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成初始静态页面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2023/09/03/kTKuywD84VhgzPr.png" alt="hexo g"></p>
+<ul>
+<li>发布并本地启动后就可以根据hexo s后提示的地址访问初始hexo页面辣</li>
+<li>至此，安装hexo初步成功</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png" alt="show hexo"></p>
+<ul>
+<li>关闭本地服务器，在bash中按ctrl+C关闭本地服务器</li>
+</ul>
+<h5 id="3、将博客托管在github-page"><a href="#3、将博客托管在github-page" class="headerlink" title="3、将博客托管在github page"></a>3、将博客托管在github page</h5><h6 id="Part1，准备githubPage"><a href="#Part1，准备githubPage" class="headerlink" title="Part1，准备githubPage"></a>Part1，准备githubPage</h6><ul>
+<li><p>登录github账号，创建一个仓库用于存放你发布的博客</p>
+</li>
+<li><p>设置仓库名，格式必须为**&lt;用户名&gt;.github.io**，然后点击Create repository，完成创建</p>
+</li>
+<li><p>创建完成后打开你刚刚创建的仓库，点击setting一栏找到pages设置,可以看见创建的githubpage的域名（图内绿框代表你的用户名）</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/03/r3S5GqXJI12ahdg.png" alt="set gitpage"></p>
+<ul>
+<li>至此，我们已经有了一个允许互联网上其他人访问的窗口（刚刚得到的域名）</li>
+</ul>
+<h5 id="Part2，使本地的博客可以发布到githubPage上"><a href="#Part2，使本地的博客可以发布到githubPage上" class="headerlink" title="Part2，使本地的博客可以发布到githubPage上"></a>Part2，使本地的博客可以发布到githubPage上</h5><ul>
+<li>配置SSH key，即是将本地的github账户与互联网上的github账户匹配，从而能确保提交内容能被顺利更新到对应仓库</li>
+<li>cd ~&#x2F;.ssh，如果没报错或者提示什么的说明就是以前生成过的（以前使用git工具时），直接使用 cat ~&#x2F;.ssh&#x2F;id_rsa.pub 命令就是可以查看本机上的 SSH key 了。</li>
+<li>如这一步发生报错或是提示可参考这里来完成生成生成本地公钥</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2023/09/03/ZutIseKba3Y2B9V.png" alt="generate pubkey"></p>
+<ul>
+<li>ok，到这一步我们手里应该已经拿到了本地公钥，接下来到我们的github账号，将这个公钥配置到我们的github账户，完成本地与github账号的连接</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/03/XFzvUhlpkyCExf3.png" alt="set pub key step 1"><br><img src="https://s2.loli.net/2023/09/03/qSnzpvh8PLMU65H.png" alt="set pub key step 2"></p>
+<ul>
+<li>至此，本地与github的连接也完成了，验证一下连接是否畅通⑧</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置成功后，即可不需要账号密码和github互动辣</li>
+<li>回到hexo，此时，虽然本地可以和github畅通了，但是我们发布hexo博客并不是简单使用git将本地的博客文件整个提交到github，而是收到我们的发布命令后，hexo会选择性的将有必要上传的文件上传，大概就是经过hexo渲染后需要展示给博客访问者的内容，而本地的框架配置文件等等则不会上传。</li>
+<li>为了达到上一条描述额效果，我们需要安装部署插件hexo-deployer-git</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 用npm安装很方便</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在根目录的 _config.yml 下进行配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repo: git@github.com:flashback712/flashback712.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最后，到达世界最高城，运行命令将本地文章推送到github</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo g <span class="comment">#  generate 生成之前提到的需要展示给博客访问者的资源</span></span><br><span class="line">hexo d <span class="comment">#  deploy 发布到github</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>稍等片刻，访问 https:&#x2F;&#x2F;你的用户名.github.io 就会看到你发布的博客辣!</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">flashback712</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2020/04/11/hello-world/">http://example.com/2020/04/11/hello-world/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论"><img class="cover" src="https://s2.loli.net/2023/09/08/SyWvVFUBI78lfLp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">为你的hexo博客添加gitalk评论</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论"><img class="cover" src="https://s2.loli.net/2023/09/08/SyWvVFUBI78lfLp.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-01</div><div class="title">为你的hexo博客添加gitalk评论</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">flashback712</div><div class="author-info__description">人无再少年</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/flashback712" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">二、环境准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、开始配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%B7%BB%E5%8A%A0npm"><span class="toc-number">3.1.</span> <span class="toc-text">1、添加npm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85hexo"><span class="toc-number">3.2.</span> <span class="toc-text">2、安装hexo</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github-page"><span class="toc-number">3.3.</span> <span class="toc-text">3、将博客托管在github page</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Part1%EF%BC%8C%E5%87%86%E5%A4%87githubPage"><span class="toc-number">3.3.1.</span> <span class="toc-text">Part1，准备githubPage</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Part2%EF%BC%8C%E4%BD%BF%E6%9C%AC%E5%9C%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%8F%91%E5%B8%83%E5%88%B0githubPage%E4%B8%8A"><span class="toc-number">3.4.</span> <span class="toc-text">Part2，使本地的博客可以发布到githubPage上</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/09/about-docker/" title="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml"><img src="https://s2.loli.net/2023/09/09/EsfMgVhva1xlbC5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml"/></a><div class="content"><a class="title" href="/2022/09/09/about-docker/" title="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml">搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml</a><time datetime="2022-09-09T04:10:06.000Z" title="Created 2022-09-09 12:10:06">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/30/common-lock/" title="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等"><img src="https://s2.loli.net/2023/09/09/k7HljZXWaRLsyp8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等"/></a><div class="content"><a class="title" href="/2021/05/30/common-lock/" title="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等">常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等</a><time datetime="2021-05-30T04:39:59.000Z" title="Created 2021-05-30 12:39:59">2021-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论"><img src="https://s2.loli.net/2023/09/08/SyWvVFUBI78lfLp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为你的hexo博客添加gitalk评论"/></a><div class="content"><a class="title" href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论">为你的hexo博客添加gitalk评论</a><time datetime="2021-02-28T17:24:56.000Z" title="Created 2021-03-01 01:24:56">2021-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/04/11/hello-world/" title="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !"><img src="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !"/></a><div class="content"><a class="title" href="/2020/04/11/hello-world/" title="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !">搭建个人blog，step by step，hexo + githubPage =&gt; hello world !</a><time datetime="2020-04-10T16:00:00.000Z" title="Created 2020-04-11 00:00:00">2020-04-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By flashback712</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '9208317ebfab5f03d645',
+      clientSecret: 'd422e3807e82ea5d87e97fa09d9597bd206e4d5c',
+      repo: 'flashback712.github.io',
+      owner: 'flashback712',
+      admin: ['flashback712'],
+      id: 'fc5b51c6219eaa62979ef61f07e31d7b',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
