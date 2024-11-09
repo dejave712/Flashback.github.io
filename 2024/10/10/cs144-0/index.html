@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>cs144-0 | flaskback712's blog</title><meta name="author" content="flashback712"><meta name="copyright" content="flashback712"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="cs144 目前分为两个版本，分别为以23年春季发布的 Minnow，和旧版的 Sponge，Minnow 上线后旧版本 Sponge 的仓库被官方下线了， 新版本据说难度降低了，砍掉了原来最难的 TCP Connection 部分，内容也有所改动。 配置环境 Fetch a Web page，手动发送一个 http 请求 Listening and connecting， netcat 作为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs144-0">
+<meta property="og:url" content="http://example.com/2024/10/10/cs144-0/index.html">
+<meta property="og:site_name" content="flaskback712&#39;s blog">
+<meta property="og:description" content="cs144 目前分为两个版本，分别为以23年春季发布的 Minnow，和旧版的 Sponge，Minnow 上线后旧版本 Sponge 的仓库被官方下线了， 新版本据说难度降低了，砍掉了原来最难的 TCP Connection 部分，内容也有所改动。 配置环境 Fetch a Web page，手动发送一个 http 请求 Listening and connecting， netcat 作为">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg">
+<meta property="article:published_time" content="2024-10-10T14:42:58.000Z">
+<meta property="article:modified_time" content="2024-10-11T05:22:23.262Z">
+<meta property="article:author" content="flashback712">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2023/09/09/CvNOiQ7YAPfcZqj.png"><link rel="canonical" href="http://example.com/2024/10/10/cs144-0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'cs144-0',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-11 13:22:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/09/09/QZbdYxenqz1avDt.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="flaskback712's blog"><span class="site-name">flaskback712's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">cs144-0</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-10-10T14:42:58.000Z" title="Created 2024-10-10 22:42:58">2024-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-11T05:22:23.262Z" title="Updated 2024-10-11 13:22:23">2024-10-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="cs144-0"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2024/10/10/cs144-0/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ol>
+<li>cs144 目前分为两个版本，分别为以23年春季发布的 Minnow，和旧版的 Sponge，Minnow 上线后旧版本 Sponge 的仓库被官方下线了， 新版本据说难度降低了，砍掉了原来最难的 TCP Connection 部分，内容也有所改动。</li>
+<li>配置环境</li>
+<li>Fetch a Web page，手动发送一个 http 请求</li>
+<li>Listening and connecting， netcat 作为 server，telnet 作为 client，相互通信<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">•	Netcat：功能非常丰富，适合多种网络操作，支持 TCP 和 UDP，能进行数据传输、端口扫描、监听等。</span><br><span class="line">•	Telnet：一个传统的基于 TCP 的远程登录工具，用于简单的网络连接测试，但功能较为有限。</span><br></pre></td></tr></table></figure>
+<img src="/image.png" alt="alt text"></li>
+<li>安装环境<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">安装 所需依赖</span><br><span class="line">sudo apt update &amp;&amp; sudo apt install git cmake gdb build-essential clang \</span><br><span class="line">clang-tidy clang-format gcc-doc pkg-config glibc-doc tcpdump tshark</span><br><span class="line"></span><br><span class="line">安装 cmake</span><br><span class="line">sudo apt install cmake</span><br><span class="line"></span><br><span class="line">使用 cmake 将需要的文件编译到制定文件夹（build）</span><br><span class="line">cmake -S . -B build</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>Webget<br>要求实现 get_URL 函数，功能为向指定 IP 地址发送 HTTP GET 请求，然后输出所有响应。<br>要求调用 Linux kernel 自带的 TCP&#x2F;IP 协议栈实现即可，Sponge 已经将 C-Style 的 Socket 封装成了几个 C++ 类：FileDescriptor, Socket, TCPSocket, and Address classes</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">flashback712</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/10/10/cs144-0/">http://example.com/2024/10/10/cs144-0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/09/09/about-docker/" title="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml"><img class="cover" src="https://s2.loli.net/2023/09/09/EsfMgVhva1xlbC5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/09/09/T1uOfbpJq3ejiAh.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">flashback712</div><div class="author-info__description">人无再少年</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/flashback712" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/10/cs144-0/" title="cs144-0">cs144-0</a><time datetime="2024-10-10T14:42:58.000Z" title="Created 2024-10-10 22:42:58">2024-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/09/about-docker/" title="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml"><img src="https://s2.loli.net/2023/09/09/EsfMgVhva1xlbC5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml"/></a><div class="content"><a class="title" href="/2022/09/09/about-docker/" title="搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml">搞懂 docker 中常见概念：docker, dockerfile, image, container, docker-compose, docker-compose.yml</a><time datetime="2022-09-09T04:10:06.000Z" title="Created 2022-09-09 12:10:06">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/30/common-lock/" title="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等"><img src="https://s2.loli.net/2023/09/09/k7HljZXWaRLsyp8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等"/></a><div class="content"><a class="title" href="/2021/05/30/common-lock/" title="常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等">常见的Java锁总结：公平锁,独享锁,互斥锁,乐观锁,分段锁,偏向锁,自旋锁等</a><time datetime="2021-05-30T04:39:59.000Z" title="Created 2021-05-30 12:39:59">2021-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论"><img src="https://s2.loli.net/2023/09/08/SyWvVFUBI78lfLp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为你的hexo博客添加gitalk评论"/></a><div class="content"><a class="title" href="/2021/03/01/gitalk-comment/" title="为你的hexo博客添加gitalk评论">为你的hexo博客添加gitalk评论</a><time datetime="2021-02-28T17:24:56.000Z" title="Created 2021-03-01 01:24:56">2021-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/04/11/hello-world/" title="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !"><img src="https://s2.loli.net/2023/09/03/4UOs5GxEaR2JhKM.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !"/></a><div class="content"><a class="title" href="/2020/04/11/hello-world/" title="搭建个人blog，step by step，hexo + githubPage =&gt; hello world !">搭建个人blog，step by step，hexo + githubPage =&gt; hello world !</a><time datetime="2020-04-10T16:00:00.000Z" title="Created 2020-04-11 00:00:00">2020-04-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By flashback712</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '9208317ebfab5f03d645',
+      clientSecret: 'd422e3807e82ea5d87e97fa09d9597bd206e4d5c',
+      repo: 'flashback712.github.io',
+      owner: 'flashback712',
+      admin: ['flashback712'],
+      id: 'd06a3e53af18d5b46d116c9b1323d881',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
